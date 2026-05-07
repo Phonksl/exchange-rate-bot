@@ -1,5 +1,6 @@
 import os
 import logging
+from keep_alive import keep_alive
 from dotenv import load_dotenv
 
 from aiogram import Bot, Dispatcher, executor, types
@@ -129,4 +130,5 @@ async def process_currency_to(callback_query: types.CallbackQuery, state: FSMCon
     await state.finish()
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    keep_alive() 
+    executor.start_polling(dp, skip_updates=True) 
